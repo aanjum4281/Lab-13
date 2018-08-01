@@ -22,7 +22,7 @@ public class RoshamboApp {
 		if (opponent == 1) {
 			
 			//duplicate variable error  is issue with declaring variable name 
-			challenger = new RandomPlayer("Randy");
+			challenger = new RandomPlayer(" Randy");
 			System.out.println("You are playing Randy");
 			System.out.println();
 		} else {
@@ -60,17 +60,16 @@ scnr.close();
 		Roshambo computerOutput = challenger.generateRoshambo();
 		
 		
-		System.out.println(input);
+		System.out.println(human + " picked "+ input);
 		
-		System.out.println(computerOutput);
+		System.out.println( challenger + " picked "+ computerOutput);
+		
 		System.out.println();
 		System.out.println("Who one?");
 		whoWon(human.getName(), input, computerOutput);
 		
 		
-		if (input == Roshambo.ROCK && computerOutput == Roshambo.SCISSORS) {
-			System.out.println(human.getName() + "won!");
-		}
+		
 	//modifiers return type
 		
 		//do it in a seperate method
@@ -84,13 +83,23 @@ scnr.close();
 		if (input == Roshambo.ROCK && computerOutput == Roshambo.SCISSORS) {
 			System.out.println(name + " won!");
 			System.out.println();
+		}else if ( input == Roshambo.PAPER && computerOutput == Roshambo.ROCK) {
+			System.out.println(name + " won!");
+			System.out.println();
+		} else if (input == Roshambo.SCISSORS && computerOutput == Roshambo.PAPER) {
+			System.out.println(name + " won!");
+			System.out.println();
 		} else if (input == computerOutput) {
 			System.out.println();
 			System.out.println("It's a draw! You both win! ");
 			System.out.println();
-		} else {
-			System.out.println(" won!");
+		} else if (computerOutput == Roshambo.ROCK && input == Roshambo.SCISSORS){
+			System.out.println("Opponent won!");
 			System.out.println();
+		} else if (computerOutput == Roshambo.PAPER && input == Roshambo.ROCK) {
+			System.out.println("Opponent won!");
+		} else if (computerOutput == Roshambo.SCISSORS && input == Roshambo.PAPER) {
+			System.out.println("Opponent won!");
 		}
 	}
 
